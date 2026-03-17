@@ -64,7 +64,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: bora.local
+    - host: app.bora.local
       paths:
         - path: /
           pathType: Prefix
