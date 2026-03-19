@@ -13,7 +13,7 @@ def home():
         return jsonify({
             'time': datetime.datetime.now().strftime("%I:%M%p on %B %d, %Y"),
             'hostname': socket.gethostname(),
-            'message': 'teste de versao python gitHub action pipeline v4'
+            'message': 'teste de versao python gitHub action pipeline v3'
             })
 
 
