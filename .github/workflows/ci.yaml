@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: odirleyrp/python-app:${{ github.sha::6 }}
+          tags: odirleyrp/python-app:${{ github.sha }}
