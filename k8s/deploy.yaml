@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: odirleyrp/python-app:v2
+        image: odirleyrp/python-app:846e6b44e7ff5957ebdea60c269896bfef2602bf
         ports:
         - containerPort: 5000
