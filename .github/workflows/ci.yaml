@@ -12,7 +12,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: : Shorten Commit id
+      - name: Shorten Commit id
         shell: bash
         run: |
           echo "COMMIT_ID=${GITHUB_SHA::6}" >> "$GITHUB_ENV"
