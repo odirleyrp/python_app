@@ -50,4 +50,4 @@ jobs:
             --grpc-web \
             --username admin \
             --password ${{ secrets.ARGOCD_PASSWORD }}
-          argocd aoo sync python-app
+          argocd app sync python-app
