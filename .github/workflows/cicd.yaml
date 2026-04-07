@@ -37,7 +37,7 @@ jobs:
       - name: Install Argocd binary
         shell: bash
         run: |
-          sudo curl -KsSL -o argocd https://argocd.bora.local:4443/download/argocd-linux-amd64
+          sudo curl -ksSL -o argocd  https://argocd-server.argocd/download/argocd-linux-amd64
           sudo chmod +x argocd
           sudo mv ./argocd /usr/local/bin
 
