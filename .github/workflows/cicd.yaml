@@ -29,10 +29,26 @@ jobs:
         with:
           push: true
           tags: odirleyrp/python-app:${{ env.COMMIT_ID }}
+    outputs:
+      commit_id: ${{ env.COMMIT_ID }}          
   cd:
     needs: ci
     runs-on: self-hosted
     steps:
+      - uses: actions/checkou@v3
+
+      - name: Modify Values file
+        shell: bash
+        run: |
+          echo ${{needs.ci.outputs.commit_id}}
+          pip3 install yq --break-system-packages
+          yq -Yi '.image.tag = ${{needs.ci.outputs.commit_id}} chart/python-app/values.yaml'
+
+      - name: Commit Chancges
+        uses: EndBug/add-add-commit@v9
+        with:
+          message: "update do values ${{needs.ci.outputs.commit_id}} "
+
 
       - name: Install Argocd binary
         shell: bash
@@ -40,7 +56,6 @@ jobs:
           sudo curl -ksSL -o argocd  https://argocd-server.argocd/download/argocd-linux-amd64
           sudo chmod +x argocd
           sudo mv ./argocd /usr/local/bin
-
 
       - name: Argocd app sync
         shell: bash
