@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: odirleyrp/python-app
   pullPolicy: IfNotPresent
-  tag: "51909d"
+  tag: "2ff469"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
