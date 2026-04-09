@@ -42,7 +42,7 @@ jobs:
         run: |
           echo ${{needs.ci.outputs.commit_id}}
           pip3 install yq --break-system-packages
-          yq -Yi '.image.tag = ${{needs.ci.outputs.commit_id}} chart/python-app/values.yaml'
+          yq -Yi '.image.tag = ${{needs.ci.outputs.commit_id}} charts/python-app/values.yaml'
 
       - name: Commit Changes
         uses: EndBug/add-and-commit@v9
