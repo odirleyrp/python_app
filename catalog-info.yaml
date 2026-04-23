@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: python-app
+  description: my first app
+  annotations:
+    github.com/project-slug: odirleyrp/python_app
+
+spec:
+  type: service
+  owner: development
+  lifecycle: experimental
