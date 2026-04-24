@@ -5,6 +5,6 @@ edit_uri: edit/main/docs
 
 plugins:
   - techdocs-core
-'nav:
+nav:
   - Overview:
       - Getting started: 'docs/index.md'
