@@ -5,7 +5,7 @@ metadata:
   description: my first app
   annotations:
     github.com/project-slug: odirleyrp/python_app
-
+    backstage.io/techdocs-ref: dir:.
 spec:
   type: service
   owner: development
