@@ -1,18 +1,18 @@
 replicaCount: 1
 image:
-  repository: odirleyrp/${{values.app_name}}
+  repository: odirleyrp/python-app
   pullPolicy: IfNotPresent
-  tag: ${{values.app_name}}-${{values.app_env}}-latest
+  tag: "51909d"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-podAnnotations: {}
-podLabels: {}
 serviceAccount:
   create: false
   automount: true
   annotations: {}
   name: ""
+podAnnotations: {}
+podLabels: {}
 podSecurityContext: {}
 securityContext: {}
 service:
@@ -23,15 +23,25 @@ ingress:
   className: "nginx"
   annotations: {}
   hosts:
-    - host: ${{values.app_name}}-${{values.app_env}}.test.com
+    - host: app.bora.local
       paths:
         - path: /
           pathType: Prefix
   tls: []
-resources:
-  requests:
-    cpu: 50m
-    memory: 50M
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs:
+    - name: gateway
+      sectionName: http
+  hostnames:
+    - chart-example.local
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /headers
+resources: {}
 livenessProbe:
   httpGet:
     path: /api/v1/healthz
